@@ -1,0 +1,30 @@
+{
+  "addresses": [
+    {
+      "id": 1,
+      "planet": "Terra",
+      "product": "produto teste",
+      "storage_code": "01ABC",
+      "zip_code": "0000000",
+      "phone": "+551190000-0000",
+      "country": "Brasil",
+      "state": "Sãu Paulo",
+      "city": "Mogi das Cruzes",
+      "address": "Rua mogi sao paulo, 01",
+      "location": ""
+    },
+    {
+      "id": 1,
+      "planet": "Marte",
+      "product": "produto teste1",
+      "storage_code": "02ABC",
+      "zip_code": "001Mar",
+      "phone": "+551190000-0000",
+      "country": "",
+      "state": "",
+      "city": "",
+      "address": "",
+      "location": "MAR01"
+    }
+  ]
+}
