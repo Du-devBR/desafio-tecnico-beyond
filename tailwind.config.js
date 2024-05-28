@@ -10,6 +10,7 @@ export default {
         BaseGray100: "#F9F0F0",
         BaseGray300: "#DEDEDE",
         BaseGray700: "#4E4E4E",
+        BaseGray900: "#151515",
         BaseGray1000: "#000000",
         white: "#ffffff",
       }
