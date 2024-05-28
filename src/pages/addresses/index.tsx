@@ -29,6 +29,14 @@ export function Addresses() {
         <Card />
         <Card />
         <Card />
+        <div className="flex gap-4 self-end">
+          <button className=" text-BaseGray900 text-base font-medium text-center border-2 rounded-lg border-BaseGray300 py-2 px-6 hover:bg-BaseGray300  hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl">
+            Cancelar
+          </button>
+          <button className=" text-white text-base font-medium text-center border-2 rounded-lg bg-primary py-2 px-6 hover:text-white hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl">
+            Salvar alterações
+          </button>
+        </div>
       </section>
     </main>
   );
