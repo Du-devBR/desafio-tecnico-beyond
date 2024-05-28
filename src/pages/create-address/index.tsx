@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { AiOutlineLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useAddresses } from "../../hooks/useAddress";
 
-interface AddressShipping {
-  id: number;
+export interface AddressShipping {
+  id: string;
   planet: string;
   product: string;
   storage_code: string;
@@ -18,11 +19,12 @@ interface AddressShipping {
 
 export function CreateAddress() {
   const { register, handleSubmit, watch } = useForm<AddressShipping>();
+  const { createNewAddress } = useAddresses();
 
   const planet = watch("planet", "");
 
   const handleSubmmitNewAddress = (data: AddressShipping) => {
-    console.log(data);
+    createNewAddress(data);
   };
 
   return (
@@ -72,7 +74,7 @@ export function CreateAddress() {
               className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
-              {...(register("product"), { required: true })}
+              {...register("product")}
             />
           </div>
           <div className="w-full relative flex flex-col gap-2">
@@ -86,7 +88,7 @@ export function CreateAddress() {
               className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
-              {...(register("storage_code"), { required: true })}
+              {...register("storage_code")}
             />
           </div>
           <div className="flex gap-4">
@@ -101,7 +103,7 @@ export function CreateAddress() {
                 className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
-                {...(register("zip_code"), { required: true })}
+                {...register("zip_code")}
               />
             </div>
             <div className="max-w-max relative flex flex-col gap-2">
@@ -115,7 +117,7 @@ export function CreateAddress() {
                 className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
-                {...(register("phone"), { required: true })}
+                {...register("phone")}
               />
             </div>
           </div>
@@ -132,7 +134,7 @@ export function CreateAddress() {
                   <input
                     className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
-                    {...(register("country"), { required: true })}
+                    {...register("country")}
                   />
                 </div>
                 <div className="w-full relative flex flex-col gap-2">
@@ -145,7 +147,7 @@ export function CreateAddress() {
                   <input
                     className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
-                    {...(register("state"), { required: true })}
+                    {...register("state")}
                   />
                 </div>
                 <div className="w-full relative flex flex-col gap-2">
@@ -158,7 +160,7 @@ export function CreateAddress() {
                   <input
                     className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
-                    {...(register("city"), { required: true })}
+                    {...register("city")}
                   />
                 </div>
               </div>
@@ -172,7 +174,7 @@ export function CreateAddress() {
                 <input
                   className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                   type="text"
-                  {...(register("address"), { required: true })}
+                  {...register("address")}
                 />
               </div>
             </>
@@ -188,7 +190,7 @@ export function CreateAddress() {
                 className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
-                {...(register("location"), { required: true })}
+                {...register("location")}
               />
             </div>
           )}

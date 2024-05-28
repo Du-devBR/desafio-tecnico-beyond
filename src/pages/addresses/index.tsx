@@ -1,8 +1,23 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/card";
+import { AddressShipping } from "../create-address";
+import { useAddresses } from "../../hooks/useAddress";
 
 export function Addresses() {
+  const { addresses, error, isLoading, deleteAddress } = useAddresses();
+
+  const handleDeleteAddress = (id: string) => {
+    deleteAddress(id);
+  };
+
+  if (isLoading) {
+    return <p>...carregando</p>;
+  }
+
+  if (error) {
+    return <p>Erro ao carregar dados</p>;
+  }
   return (
     <main className="flex flex-col my-12">
       <h1 className="font-bold text-BaseGray900 text-3xl">Endereços</h1>
@@ -26,9 +41,13 @@ export function Addresses() {
         <h1 className="font-bold text-BaseGray900 text-2xl">
           Endereços cadastrados
         </h1>
-        <Card />
-        <Card />
-        <Card />
+        {addresses?.map((address: AddressShipping) => (
+          <Card
+            key={address.id}
+            data={address}
+            onDelete={handleDeleteAddress}
+          />
+        ))}
         <div className="flex gap-4 self-end">
           <button className=" text-BaseGray900 text-base font-medium text-center border-2 rounded-lg border-BaseGray300 py-2 px-6 hover:bg-BaseGray300  hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl">
             Cancelar
