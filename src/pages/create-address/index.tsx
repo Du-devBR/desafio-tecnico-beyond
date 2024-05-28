@@ -18,13 +18,14 @@ export interface AddressShipping {
 }
 
 export function CreateAddress() {
-  const { register, handleSubmit, watch } = useForm<AddressShipping>();
+  const { register, handleSubmit, watch, reset } = useForm<AddressShipping>();
   const { createNewAddress } = useAddresses();
 
   const planet = watch("planet", "");
 
   const handleSubmmitNewAddress = (data: AddressShipping) => {
     createNewAddress(data);
+    reset();
   };
 
   return (
