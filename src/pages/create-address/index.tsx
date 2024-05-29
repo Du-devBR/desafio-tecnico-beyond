@@ -2,20 +2,7 @@ import { useForm } from "react-hook-form";
 import { AiOutlineLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useAddresses } from "../../hooks/useAddress";
-
-export interface AddressShipping {
-  id: string;
-  planet: string;
-  product: string;
-  storage_code: string;
-  zip_code: string;
-  phone: string;
-  country?: string;
-  state?: string;
-  city?: string;
-  address?: string;
-  location?: string;
-}
+import { AddressShipping } from "../../types/address";
 
 export function CreateAddress() {
   const { register, handleSubmit, watch, reset } = useForm<AddressShipping>();

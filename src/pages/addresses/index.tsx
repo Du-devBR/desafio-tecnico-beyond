@@ -1,8 +1,8 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/card";
-import { AddressShipping } from "../create-address";
 import { useAddresses } from "../../hooks/useAddress";
+import { AddressShipping } from "../../types/address";
 
 export function Addresses() {
   const { addresses, error, isLoading, deleteAddress } = useAddresses();

@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAllAddresses } from "../service/listAllAddresses";
-import { AddressShipping } from "../pages/create-address";
 import { createAddress } from "../service/createAddress";
 import { deleteAddressById } from "../service/deleteAddress";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { updateAddress } from "../service/updateAddress";
+import { AddressShipping } from "../types/address";
 
 export function useAddresses(){
   const navigate = useNavigate()

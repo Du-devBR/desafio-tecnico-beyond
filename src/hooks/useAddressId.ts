@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAddressById } from "../service/listAddress";
-import { AddressShipping } from "../pages/create-address";
+import { AddressShipping } from "../types/address";
 
 
 export function useAddressId(id: string){

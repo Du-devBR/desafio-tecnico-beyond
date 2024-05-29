@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { useAddressId } from "../../hooks/useAddressId";
 import { useForm } from "react-hook-form";
-import { AddressShipping } from "../create-address";
 import { AiOutlineLeft } from "react-icons/ai";
 import { useAddresses } from "../../hooks/useAddress";
+import { AddressShipping } from "../../types/address";
 
 export function DetailsAddress() {
   const { id } = useParams<{ id: string }>();

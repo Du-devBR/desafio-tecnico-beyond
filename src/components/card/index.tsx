@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AddressShipping } from "../../pages/create-address";
+import { AddressShipping } from "../../types/address";
 
 interface AddressData {
   data: AddressShipping;
