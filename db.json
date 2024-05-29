@@ -20,6 +20,15 @@
       "zip_code": "",
       "phone": "",
       "location": "MAR20"
+    },
+    {
+      "id": "c204",
+      "planet": "marte",
+      "product": "Camiseta elon musk",
+      "storage_code": "01",
+      "zip_code": "12",
+      "phone": "19111111",
+      "location": "M003"
     }
   ]
 }

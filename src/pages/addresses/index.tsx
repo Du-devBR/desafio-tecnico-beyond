@@ -6,27 +6,38 @@ import { AddressShipping } from "../../types/address";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useState } from "react";
+import { useAddressFilter } from "../../hooks/useAddressFilter";
 
 export function Addresses() {
   const { addresses, isLoading, error, deleteAddress } = useAddresses();
   const [selectedCard, setSelectedCard] = useState("");
+  const [filterText, setFilterText] = useState("");
+  const { data } = useAddressFilter(filterText);
+  const dataMap = data ? data : addresses;
 
   const handleDeleteAddress = (id: string) => {
     deleteAddress(id);
+  };
+
+  const handleSubmitInputText = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFilterText(event.target.value);
   };
 
   return (
     <main className="flex flex-col my-12">
       <h1 className="font-bold text-BaseGray900 text-3xl">Endereços</h1>
       <section className="flex justify-between w-full gap-6 mt-8 mb-12">
-        <div className="w-full relative">
+        <form className="w-full relative">
           <AiOutlineSearch className="absolute left-4 top-4 w-6 h-6 text-BaseGray300" />
           <input
             className="w-full text-base font-medium border-2 rounded-lg py-4 px-12 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
             type="text"
+            onChange={handleSubmitInputText}
             placeholder="Pesquise pelo endereço da entrega"
           />
-        </div>
+        </form>
         <Link
           className="w-1/4 text-primary text-base font-medium text-center border-2 rounded-lg border-primary py-4 hover:bg-primary hover:text-white hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl"
           to={"/cadastrar-endereco"}
@@ -43,7 +54,7 @@ export function Addresses() {
             <Skeleton count={2} width={"100%"} height={200} className="mb-4" />
           ) : (
             <>
-              {addresses?.map((address: AddressShipping) => (
+              {dataMap?.map((address: AddressShipping) => (
                 <Card
                   key={address.id}
                   data={address}
@@ -55,7 +66,7 @@ export function Addresses() {
             </>
           )}
         </div>
-        {addresses?.length === 0 || error ? (
+        {dataMap?.length === 0 || error ? (
           <div className="w-full py-16 text-center">
             <p className="text-3xl text-BaseGray900">
               Nenhum endereço cadastrado
