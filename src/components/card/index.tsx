@@ -20,7 +20,7 @@ export function Card({ data, onDelete }: AddressData) {
       </p>
       <div className="flex gap-4">
         <Link
-          to={"/endereco/1"}
+          to={`/endereco/${data.id}`}
           className="w text-primary text-base font-medium text-center border-2 rounded-lg border-primary py-2 px-6 hover:bg-primary hover:text-white hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl"
         >
           Editar Endereço
