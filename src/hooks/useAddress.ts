@@ -31,7 +31,7 @@ export function useAddresses(){
 
   const deleteAddress = useMutation({mutationFn: deleteAddressById,
     onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: ["addresses"]}),
+      queryClient.invalidateQueries({queryKey: ['addresses']}),
       toast.success("Deletado endereço com sucesso!", { autoClose: 2000 })
     },
     onError: () => toast.error("Erro ao deletar endereço", { autoClose: 2000 })
