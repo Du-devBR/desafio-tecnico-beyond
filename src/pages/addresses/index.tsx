@@ -3,21 +3,16 @@ import { Link } from "react-router-dom";
 import { Card } from "../../components/card";
 import { useAddresses } from "../../hooks/useAddress";
 import { AddressShipping } from "../../types/address";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export function Addresses() {
-  const { addresses, error, isLoading, deleteAddress } = useAddresses();
+  const { addresses, isLoading, error, deleteAddress } = useAddresses();
 
   const handleDeleteAddress = (id: string) => {
     deleteAddress(id);
   };
 
-  if (isLoading) {
-    return <p>...carregando</p>;
-  }
-
-  if (error) {
-    return <p>Erro ao carregar dados</p>;
-  }
   return (
     <main className="flex flex-col my-12">
       <h1 className="font-bold text-BaseGray900 text-3xl">Endereços</h1>
@@ -41,13 +36,30 @@ export function Addresses() {
         <h1 className="font-bold text-BaseGray900 text-2xl">
           Endereços cadastrados
         </h1>
-        {addresses?.map((address: AddressShipping) => (
-          <Card
-            key={address.id}
-            data={address}
-            onDelete={handleDeleteAddress}
-          />
-        ))}
+        <div className="flex flex-col gap-6">
+          {isLoading ? (
+            <Skeleton count={2} width={"100%"} height={200} className="mb-4" />
+          ) : (
+            <>
+              {addresses?.map((address: AddressShipping) => (
+                <Card
+                  key={address.id}
+                  data={address}
+                  onDelete={handleDeleteAddress}
+                />
+              ))}
+            </>
+          )}
+        </div>
+        {addresses?.length === 0 || error ? (
+          <div className="w-full py-16 text-center">
+            <p className="text-3xl text-BaseGray900">
+              Nenhum endereço cadastrado
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="flex gap-4 self-end">
           <button className=" text-BaseGray900 text-base font-medium text-center border-2 rounded-lg border-BaseGray300 py-2 px-6 hover:bg-BaseGray300  hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl">
             Cancelar
