@@ -9,15 +9,16 @@ import { useState } from "react";
 import { useAddressFilter } from "../../hooks/useAddressFilter";
 
 export function Addresses() {
-  const { addresses, isLoading, error, deleteAddress } = useAddresses();
-  const [selectedCard, setSelectedCard] = useState("");
   const [filterText, setFilterText] = useState("");
   const { data } = useAddressFilter(filterText);
-  const dataMap = data ? data : addresses;
+  const { addresses, isLoading, error, deleteAddress } = useAddresses();
+  const [selectedCard, setSelectedCard] = useState("");
 
   const handleDeleteAddress = (id: string) => {
     deleteAddress(id);
   };
+
+  const dataMap = data || addresses;
 
   const handleSubmitInputText = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -27,8 +28,10 @@ export function Addresses() {
 
   return (
     <main className="flex flex-col my-12">
-      <h1 className="font-bold text-BaseGray900 text-3xl">Endereços</h1>
-      <section className="flex justify-between w-full gap-6 mt-8 mb-12">
+      <h1 className="font-bold text-BaseGray900 text-3xl max-md:text-2xl">
+        Endereços
+      </h1>
+      <section className="flex justify-between w-full gap-6 mt-8 mb-12 max-sm:flex-col">
         <form className="w-full relative">
           <AiOutlineSearch className="absolute left-4 top-4 w-6 h-6 text-BaseGray300" />
           <input
@@ -39,7 +42,7 @@ export function Addresses() {
           />
         </form>
         <Link
-          className="w-1/4 text-primary text-base font-medium text-center border-2 rounded-lg border-primary py-4 hover:bg-primary hover:text-white hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl"
+          className="w-1/4 max-md:w-full text-primary text-base font-medium text-center border-2 rounded-lg border-primary py-4 hover:bg-primary hover:text-white hover:shadow-2xl duration-500 focus:shadow-BaseGray700 focus:shadow-2xl"
           to={"/cadastrar-endereco"}
         >
           Novo Endereço

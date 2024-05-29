@@ -42,14 +42,14 @@ export function DetailsAddress() {
         >
           <AiOutlineLeft />
         </Link>
-        <h1 className="font-bold text-BaseGray900 text-3xl">
+        <h1 className="font-bold text-BaseGray900 text-3xl max-md:text-2xl">
           Alterar endereço endereço para envio
         </h1>
       </div>
       <section className="flex justify-between w-full gap-6 mt-12 mb-12">
         <form
           action=""
-          className="flex flex-col w-full gap-6"
+          className="flex flex-col w-full gap-6 max-md:gap-4"
           onSubmit={handleSubmit(handleSubmmitAlterAddress)}
         >
           <div className="w-full relative flex flex-col gap-2">
@@ -62,7 +62,7 @@ export function DetailsAddress() {
             <select
               id=""
               disabled
-              className="max-w-max text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="max-w-max text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               {...register("planet")}
             >
               <option value="">Selecionar planeta</option>
@@ -78,7 +78,7 @@ export function DetailsAddress() {
               Produto
             </label>
             <input
-              className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray700 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray700 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled
               {...register("product")}
@@ -92,7 +92,7 @@ export function DetailsAddress() {
               Código de armazenamento
             </label>
             <input
-              className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray700 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray700 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled
               {...register("storage_code")}
@@ -107,7 +107,7 @@ export function DetailsAddress() {
                 Código postal
               </label>
               <input
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 {...register("zip_code")}
               />
@@ -120,7 +120,7 @@ export function DetailsAddress() {
                 Telefone
               </label>
               <input
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 {...register("phone")}
               />
@@ -137,7 +137,7 @@ export function DetailsAddress() {
                     País
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("country")}
                   />
@@ -150,7 +150,7 @@ export function DetailsAddress() {
                     Estado
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("state")}
                   />
@@ -163,7 +163,7 @@ export function DetailsAddress() {
                     Cidade
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("city")}
                   />
@@ -177,7 +177,7 @@ export function DetailsAddress() {
                   Endereço
                 </label>
                 <input
-                  className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                  className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                   type="text"
                   {...register("address", {
                     required: "Necessário digitar um novo endereço",
@@ -200,7 +200,7 @@ export function DetailsAddress() {
               </label>
               <input
                 list="list"
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 {...register("location", {
                   maxLength: {

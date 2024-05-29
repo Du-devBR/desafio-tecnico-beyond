@@ -30,14 +30,14 @@ export function CreateAddress() {
         >
           <AiOutlineLeft />
         </Link>
-        <h1 className="font-bold text-BaseGray900 text-3xl">
+        <h1 className="font-bold text-BaseGray900 text-3xl max-md:text-2xl">
           Cadastrar endereço para envio
         </h1>
       </div>
       <section className="flex justify-between w-full gap-6 mt-12 mb-12">
         <form
           action=""
-          className="flex flex-col w-full gap-6"
+          className="flex flex-col w-full gap-6 max-md:gap-4"
           onSubmit={handleSubmit(handleSubmmitNewAddress)}
         >
           <div className="w-full relative flex flex-col gap-2">
@@ -49,7 +49,7 @@ export function CreateAddress() {
             </label>
             <select
               id=""
-              className="max-w-max text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="max-w-max text-base font-medium border-2 rounded-lg p-4 max-md:p3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               {...register("planet", { required: "Selecione um planeta" })}
             >
               <option value="">Selecionar planeta</option>
@@ -70,7 +70,7 @@ export function CreateAddress() {
               Produto
             </label>
             <input
-              className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
               {...register("product", {
@@ -91,7 +91,7 @@ export function CreateAddress() {
               Código de armazenamento
             </label>
             <input
-              className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+              className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
               {...register("storage_code", {
@@ -115,7 +115,7 @@ export function CreateAddress() {
                 Código postal
               </label>
               <input
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
                 {...register("zip_code")}
@@ -129,7 +129,7 @@ export function CreateAddress() {
                 Telefone
               </label>
               <input
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
                 {...register("phone")}
@@ -147,7 +147,7 @@ export function CreateAddress() {
                     País
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("country")}
                   />
@@ -160,7 +160,7 @@ export function CreateAddress() {
                     Estado
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("state")}
                   />
@@ -173,7 +173,7 @@ export function CreateAddress() {
                     Cidade
                   </label>
                   <input
-                    className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                    className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                     type="text"
                     {...register("city")}
                   />
@@ -187,7 +187,7 @@ export function CreateAddress() {
                   Endereço
                 </label>
                 <input
-                  className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                  className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                   type="text"
                   {...register("address", {
                     required: "Necessário um endereço",
@@ -210,7 +210,7 @@ export function CreateAddress() {
               </label>
               <input
                 list="list"
-                className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
+                className="w-full text-base font-medium border-2 rounded-lg p-4 max-md:p-3 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
                 {...register("location", {

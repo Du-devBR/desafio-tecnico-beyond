@@ -1,34 +1,3 @@
 {
-  "addresses": [
-    {
-      "id": "fc97",
-      "planet": "terra",
-      "product": "fdfd",
-      "storage_code": "fd",
-      "zip_code": "",
-      "phone": "",
-      "country": "",
-      "state": "",
-      "city": "",
-      "address": "dsdsdsds"
-    },
-    {
-      "id": "716c",
-      "planet": "marte",
-      "product": "DSDSD",
-      "storage_code": "DSDS",
-      "zip_code": "",
-      "phone": "",
-      "location": "MAR20"
-    },
-    {
-      "id": "c204",
-      "planet": "marte",
-      "product": "Camiseta elon musk",
-      "storage_code": "01",
-      "zip_code": "12",
-      "phone": "19111111",
-      "location": "M003"
-    }
-  ]
+  "addresses": []
 }
