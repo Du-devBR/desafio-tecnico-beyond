@@ -9,8 +9,13 @@ export function DetailsAddress() {
   const { id } = useParams<{ id: string }>();
   const { data, isLoading } = useAddressId(id!);
   const { updateAddressId } = useAddresses();
-  const { register, handleSubmit, reset, setValue } =
-    useForm<AddressShipping>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<AddressShipping>();
 
   if (data) {
     setValue("id", data.id);
@@ -174,8 +179,15 @@ export function DetailsAddress() {
                 <input
                   className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                   type="text"
-                  {...register("address")}
+                  {...register("address", {
+                    required: "Necessário digitar um novo endereço",
+                  })}
                 />
+                {errors ? (
+                  <p className="text-sm text-red">{errors?.address?.message}</p>
+                ) : (
+                  ""
+                )}
               </div>
             </>
           ) : (
@@ -187,10 +199,29 @@ export function DetailsAddress() {
                 Lote
               </label>
               <input
+                list="list"
                 className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
-                {...register("location")}
+                {...register("location", {
+                  maxLength: {
+                    value: 4,
+                    message: "Lote deve ter 4 caracteres.",
+                  },
+                  required: "Necessário digitar um novo Lote",
+                })}
               />
+              <datalist id="list">
+                <option value="M001" />
+                <option value="M002" />
+                <option value="M003" />
+                <option value="M004" />
+                <option value="M005" />
+              </datalist>
+              {errors ? (
+                <p className="text-sm text-red">{errors?.location?.message}</p>
+              ) : (
+                ""
+              )}
             </div>
           )}
           <div className="flex gap-4 self-end">

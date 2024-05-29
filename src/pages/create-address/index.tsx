@@ -5,7 +5,13 @@ import { useAddresses } from "../../hooks/useAddress";
 import { AddressShipping } from "../../types/address";
 
 export function CreateAddress() {
-  const { register, handleSubmit, watch, reset } = useForm<AddressShipping>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<AddressShipping>();
   const { createNewAddress } = useAddresses();
 
   const planet = watch("planet", "");
@@ -44,12 +50,17 @@ export function CreateAddress() {
             <select
               id=""
               className="max-w-max text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
-              {...register("planet")}
+              {...register("planet", { required: "Selecione um planeta" })}
             >
               <option value="">Selecionar planeta</option>
               <option value="terra">Terra</option>
               <option value="marte">Marte</option>
             </select>
+            {errors ? (
+              <p className="text-sm text-red">{errors?.planet?.message}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div className="w-full relative flex flex-col gap-2 ">
             <label
@@ -62,8 +73,15 @@ export function CreateAddress() {
               className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
-              {...register("product")}
+              {...register("product", {
+                required: "Necessário nome do produto.",
+              })}
             />
+            {errors ? (
+              <p className="text-sm text-red">{errors?.product?.message}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div className="w-full relative flex flex-col gap-2">
             <label
@@ -76,8 +94,17 @@ export function CreateAddress() {
               className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
               type="text"
               disabled={planet === "" ? true : false}
-              {...register("storage_code")}
+              {...register("storage_code", {
+                required: "Necessário codigo de armazenamento",
+              })}
             />
+            {errors ? (
+              <p className="text-sm text-red">
+                {errors?.storage_code?.message}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
           <div className="flex gap-4">
             <div className="max-w-max relative flex flex-col gap-2">
@@ -162,8 +189,15 @@ export function CreateAddress() {
                 <input
                   className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                   type="text"
-                  {...register("address")}
+                  {...register("address", {
+                    required: "Necessário um endereço",
+                  })}
                 />
+                {errors ? (
+                  <p className="text-sm text-red">{errors?.address?.message}</p>
+                ) : (
+                  ""
+                )}
               </div>
             </>
           ) : (
@@ -175,11 +209,29 @@ export function CreateAddress() {
                 Lote
               </label>
               <input
+                list="list"
                 className="w-full text-base font-medium border-2 rounded-lg p-4 text-BaseGray900 placeholder:text-BaseGray300 focus:shadow-BaseGray700 focus:shadow-2xl duration-300"
                 type="text"
                 disabled={planet === "" ? true : false}
-                {...register("location")}
+                {...register("location", {
+                  maxLength: {
+                    value: 4,
+                    message: "Lote deve ter 4 caracteres.",
+                  },
+                })}
               />
+              <datalist id="list">
+                <option value="M001" />
+                <option value="M002" />
+                <option value="M003" />
+                <option value="M004" />
+                <option value="M005" />
+              </datalist>
+              {errors ? (
+                <p className="text-sm text-red">{errors?.location?.message}</p>
+              ) : (
+                ""
+              )}
             </div>
           )}
           <div className="flex gap-4 self-end">

@@ -5,12 +5,21 @@
       "planet": "terra",
       "product": "fdfd",
       "storage_code": "fd",
-      "zip_code": "fdfd",
-      "phone": "fdfd",
-      "country": "dfdfd",
-      "state": "fdfdf",
-      "city": "dfdfdf",
-      "address": "fdfdfdff"
+      "zip_code": "",
+      "phone": "",
+      "country": "",
+      "state": "",
+      "city": "",
+      "address": "dsdsdsds"
+    },
+    {
+      "id": "716c",
+      "planet": "marte",
+      "product": "DSDSD",
+      "storage_code": "DSDS",
+      "zip_code": "",
+      "phone": "",
+      "location": "MAR20"
     }
   ]
 }

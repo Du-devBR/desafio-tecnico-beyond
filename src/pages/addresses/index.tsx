@@ -5,9 +5,11 @@ import { useAddresses } from "../../hooks/useAddress";
 import { AddressShipping } from "../../types/address";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useState } from "react";
 
 export function Addresses() {
   const { addresses, isLoading, error, deleteAddress } = useAddresses();
+  const [selectedCard, setSelectedCard] = useState("");
 
   const handleDeleteAddress = (id: string) => {
     deleteAddress(id);
@@ -45,6 +47,8 @@ export function Addresses() {
                 <Card
                   key={address.id}
                   data={address}
+                  onSelected={() => setSelectedCard(address.id)}
+                  isSelected={selectedCard === address.id}
                   onDelete={handleDeleteAddress}
                 />
               ))}
