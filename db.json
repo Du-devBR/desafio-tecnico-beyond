@@ -1,3 +1,25 @@
 {
-  "addresses": []
+  "addresses": [
+    {
+      "id": "c5f4",
+      "planet": "marte",
+      "product": "Batatas para Matt Damon",
+      "storage_code": "01",
+      "zip_code": "mar123",
+      "phone": "+62382(04)55-5",
+      "location": "M001"
+    },
+    {
+      "id": "baad",
+      "planet": "terra",
+      "product": "Terra vermelha para Nasa",
+      "storage_code": "02",
+      "zip_code": "01310-930",
+      "phone": "55(11)91000-0000",
+      "country": "Brasil",
+      "state": "SP",
+      "city": "São Paulo",
+      "address": "Av. paulista, 000"
+    }
+  ]
 }

@@ -27,11 +27,11 @@ export function Addresses() {
   };
 
   return (
-    <main className="flex flex-col my-12">
+    <main className="flex flex-col my-12 max-md:my-6">
       <h1 className="font-bold text-BaseGray900 text-3xl max-md:text-2xl">
         Endereços
       </h1>
-      <section className="flex justify-between w-full gap-6 mt-8 mb-12 max-sm:flex-col">
+      <section className="flex justify-between w-full gap-6 mt-8 max-sm:mt-4 mb-12 max-sm:mb-8 max-sm:flex-col">
         <form className="w-full relative">
           <AiOutlineSearch className="absolute left-4 top-4 w-6 h-6 text-BaseGray300" />
           <input
@@ -70,8 +70,8 @@ export function Addresses() {
           )}
         </div>
         {dataMap?.length === 0 || error ? (
-          <div className="w-full py-16 text-center">
-            <p className="text-3xl text-BaseGray900">
+          <div className="w-full py-16 max-sm:py-8 text-center">
+            <p className="text-3xl max-sm:text-2xl text-BaseGray900">
               Nenhum endereço cadastrado
             </p>
           </div>
