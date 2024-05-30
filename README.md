@@ -43,7 +43,7 @@ git clone https://github.com/Du-devBR/desafio-tecnico-beyond.git
 ```
 
 ```bash
-cd space_livre/
+cd desafio-tecnico-beyond/
 ```
 
 ```bash
@@ -60,7 +60,7 @@ npm run server
 > Abra um terminal novo e rode o servidor frontend
 
 ```bash
-cd space_livre/
+cd desafio-tecnico-beyond/
 ```
 
 ### Frontend
