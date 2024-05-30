@@ -53,15 +53,15 @@ npm install
 
 <h3>Inicie os servidores</h3>
 
-```bash
-cd space_livre/
-```
-
 ### Api
 ```bash
 npm run server
 ```
-> Abrie um terminal novo
+> Abra um terminal novo e rode o servidor frontend
+
+```bash
+cd space_livre/
+```
 
 ### Frontend
 ```bash
