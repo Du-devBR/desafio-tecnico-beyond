@@ -14,6 +14,7 @@ export function CreateAddress() {
   } = useForm<AddressShipping>();
   const { createNewAddress } = useAddresses();
 
+  // variavel planet criada para armazenar o valor observado em 'planet', caso o valor seja vazio ele bloqueia os inputs até selecionar um planeta.
   const planet = watch("planet", "");
 
   const handleSubmmitNewAddress = (data: AddressShipping) => {

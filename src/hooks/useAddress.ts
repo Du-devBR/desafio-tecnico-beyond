@@ -7,6 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { updateAddress } from "../service/updateAddress";
 import { AddressShipping } from "../types/address";
 
+/**
+ * Hook customizado para gerenciar endereços.
+ *
+ * Este hook fornece funcionalidades para listar, criar, atualizar e deletar endereços.
+ * Ele também lida com a exibição de notificações e navegação após certas ações, utilizando Toastfy.
+ *
+ * @returns {Object} Um objeto contendo os endereços, estado de carregamento, erro, e métodos de CRUD.
+ * @returns {AddressShipping[] | undefined} addresses - A lista de endereços.
+ * @returns {boolean} isLoading - Indica se os endereços estão sendo carregados.
+ * @returns {unknown} error - Qualquer erro que ocorreu ao carregar os endereços.
+ * @returns {function} createNewAddress - Função para criar um novo endereço.
+ * @returns {function} updateAddressId - Função para atualizar um endereço.
+ * @returns {function} deleteAddress - Função para deletar um endereço.
+ */
+
 export function useAddresses(){
   const navigate = useNavigate()
   const queryClient = useQueryClient()

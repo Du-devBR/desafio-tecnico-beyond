@@ -9,16 +9,18 @@ import { useState } from "react";
 import { useAddressFilter } from "../../hooks/useAddressFilter";
 
 export function Addresses() {
+  // state para fornecer o valor obtido no input de filtro
   const [filterText, setFilterText] = useState("");
   const { data } = useAddressFilter(filterText);
   const { addresses, isLoading, error, deleteAddress } = useAddresses();
+  // State pusado para comparar qual card foi selecionado, sua comparação é feita entre os id clicado é igual ao selectedCard
   const [selectedCard, setSelectedCard] = useState("");
+  // variavel dataMap para armazernar qual a entrada de dados entre useAddressFilter ou useAddresses, necessario utilizar para o filtro.
+  const dataMap = data || addresses;
 
   const handleDeleteAddress = (id: string) => {
     deleteAddress(id);
   };
-
-  const dataMap = data || addresses;
 
   const handleSubmitInputText = (
     event: React.ChangeEvent<HTMLInputElement>
